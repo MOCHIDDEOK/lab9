@@ -2,20 +2,22 @@
  * GET home page.
  */
 var labs = require('../labs.json');
-console.log(labs.length);
+
 
 exports.view = function(req, res){
   if(labs.length < 9) {
-  	var todaysLab = [{
+  	var todaysLab = {
 		"id": "lab-9",
 		"title": "Debugging 101",
 		"date": "March 7",
 		"image": "debug.png"
-	}];
+	};
 
   	labs.push(todaysLab);
+    console.log(labs.length);
   }
-    console.log(labs);
 
-  res.render('index', labs);
+  res.render('index', {
+    'labs': labs
+  });
 };
