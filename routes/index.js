@@ -2,6 +2,7 @@
  * GET home page.
  */
 var labs = require('../labs.json');
+console.log(labs.length);
 
 exports.view = function(req, res){
   if(labs.length < 9) {
@@ -14,8 +15,7 @@ exports.view = function(req, res){
 
   	labs.push(todaysLab);
   }
+    console.log(labs);
 
-  res.render('index', {
-	'labs': labs
-  });
+  res.render('index', labs);
 };
